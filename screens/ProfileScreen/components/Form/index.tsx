@@ -42,7 +42,7 @@ const Form = () => {
           <StyledFormWrapper>
             <Input
               isAlternative
-              label='Your name'
+              label='Name shown on your shared cards'
               onChangeText={handleChange('name')}
               defaultValue={values.name}
             />
