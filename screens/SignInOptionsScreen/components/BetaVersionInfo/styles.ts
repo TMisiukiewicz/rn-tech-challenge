@@ -1,5 +1,4 @@
 import styled from 'styled-components/native';
-import Box from '../../../../components/styles/Box';
 
 export const StyledBetaVersionInfo = styled.View`
   position: absolute;

@@ -15,7 +15,7 @@ import {
 } from './styles';
 import BetaVersionInfo from './components/BetaVersionInfo';
 
-const SignInScreen = () => {
+const SignInOptionsScreen = () => {
   const availableSignInOptions: SignInMethods[] = [
     'apple',
     'facebook',
@@ -60,4 +60,4 @@ const SignInScreen = () => {
   );
 };
 
-export default SignInScreen;
+export default SignInOptionsScreen;

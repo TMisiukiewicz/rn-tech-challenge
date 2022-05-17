@@ -25,7 +25,7 @@ const useSocialButton = (type: SignInMethods) =>
     }
 
     return {
-      title: 'Sign up with Email',
+      title: 'Sign in with Email',
       icon: undefined,
     };
   }, [type]);

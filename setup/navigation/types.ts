@@ -1,3 +1,3 @@
 export type RootNavigationScreens = {
-  'Sign In': undefined;
+  'Sign In Options': undefined;
 };
