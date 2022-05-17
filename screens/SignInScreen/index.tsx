@@ -1,11 +1,10 @@
-import { View, Text } from 'react-native';
+import { Text } from 'react-native';
+import GradientWrapper from '../../components/wrappers/GradientWrapper';
 
-const SignInScreen = () => {
-  return (
-    <View>
-      <Text>SignInScreen</Text>
-    </View>
-  );
-};
+const SignInScreen = () => (
+  <GradientWrapper>
+    <Text>SignInScreen</Text>
+  </GradientWrapper>
+);
 
 export default SignInScreen;
