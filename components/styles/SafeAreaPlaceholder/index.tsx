@@ -1,10 +1,8 @@
-import { useSafeAreaInsets } from 'react-native-safe-area-context';
+import { EdgeInsets } from 'react-native-safe-area-context';
 import { StyledSafeAreaPlaceholder } from './styles';
 
-const SafeAreaPlaceholder = () => {
-  const { top } = useSafeAreaInsets();
-
-  return <StyledSafeAreaPlaceholder {...{ top }} />;
-};
+const SafeAreaPlaceholder = (props: Partial<EdgeInsets>) => (
+  <StyledSafeAreaPlaceholder {...props} />
+);
 
 export default SafeAreaPlaceholder;

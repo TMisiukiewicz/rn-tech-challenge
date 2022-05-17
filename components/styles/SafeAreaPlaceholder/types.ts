@@ -1,3 +1,3 @@
-export interface StyledSafeAreaPlaceholderProps {
-  top: number;
-}
+import { EdgeInsets } from 'react-native-safe-area-context';
+
+export type StyledSafeAreaPlaceholderProps = Partial<EdgeInsets>;
