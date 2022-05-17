@@ -4,6 +4,7 @@ export type RootNavigationScreens = {
   'Sign In Options': undefined;
   'Sign Up With Email': undefined;
   'Sign In': undefined;
+  Profile: undefined;
 };
 
 export type ScreenProps<S extends keyof RootNavigationScreens> =

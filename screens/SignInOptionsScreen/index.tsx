@@ -50,7 +50,7 @@ const SignInOptionsScreen = ({
                 />
               ))}
               <Box centerHorizontal pt={5}>
-                <Pressable>
+                <Pressable onPress={() => navigation.navigate('Sign In')}>
                   <StyledText fontWeight='semibold' fontSize={16}>
                     Log in with Email
                   </StyledText>

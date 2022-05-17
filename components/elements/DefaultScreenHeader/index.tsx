@@ -9,8 +9,9 @@ import Box from '../../styles/Box';
 import { StyledText } from '../../styles/Typography/styles';
 import shadow from '../../../utils/shadow';
 import useStackNavigator from '../../../hooks/useStackNavigator';
+import { HeaderWrapperProps } from '../../wrappers/HeaderWrapper/types';
 
-const DefaultScreenHeader = () => {
+const DefaultScreenHeader = ({ title }: HeaderWrapperProps) => {
   const navigation = useStackNavigator();
 
   return (
@@ -35,7 +36,7 @@ const DefaultScreenHeader = () => {
         }}
       >
         <StyledText fontWeight='bold' fontSize={20}>
-          Sign up with Email
+          {title}
         </StyledText>
         <Box />
       </View>

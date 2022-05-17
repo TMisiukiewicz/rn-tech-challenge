@@ -11,6 +11,7 @@ export const StyledTextInput = styled.TextInput`
   border-width: 1px;
   border-radius: 4px;
   padding: 9px;
+  font-family: ProximaNovaRegular;
 `;
 
 export const StyledInputWrapper = styled.View`
