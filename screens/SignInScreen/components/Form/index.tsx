@@ -1,5 +1,6 @@
 import React from 'react';
 import { Formik } from 'formik';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 import { useMutation } from '@apollo/client';
 import noop from 'lodash/noop';
 import Error from '../../../../components/elements/Error';
@@ -13,12 +14,20 @@ import { StyledText } from '../../../../components/styles/Typography/styles';
 import { useLogInForm } from './hooks';
 import { LogInForm } from './types';
 import { SubmitButtonWrapper } from './styles';
+import { ACCESS_TOKEN_KEY, REFRESH_TOKEN_KEY } from '../../../../utils/consts';
+import { useUserContext } from '../../../../contexts/UserContext';
 
 const Form = () => {
   const navigation = useStackNavigator();
+  const { setUser } = useUserContext();
   const { initialValues, validationSchema } = useLogInForm();
   const [logIn, { loading, error }] = useMutation(LOG_IN_WITH_EMAIL, {
-    onCompleted: () => {
+    onCompleted: async ({
+      loginWithEmail: { accessToken, refreshToken, user },
+    }) => {
+      await AsyncStorage.setItem(ACCESS_TOKEN_KEY, accessToken);
+      await AsyncStorage.setItem(REFRESH_TOKEN_KEY, refreshToken);
+      setUser(user);
       navigation.reset({ index: 0, routes: [{ name: 'Profile' }] });
     },
   });

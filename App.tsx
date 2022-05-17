@@ -1,5 +1,5 @@
+import React from 'react';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
-import { ApolloClient, InMemoryCache, ApolloProvider } from '@apollo/client';
 import { useFonts } from 'expo-font';
 import {
   proximaNovaBold,
@@ -9,11 +9,8 @@ import {
 } from './assets/fonts';
 import Container from './components/wrappers/Container';
 import RootNavigator from './setup/navigation';
-
-const apolloClient = new ApolloClient({
-  uri: 'https://api-dev.foodstyles.com/graphql',
-  cache: new InMemoryCache(),
-});
+import UserContextWrapper from './contexts/UserContext/UserContextWrapper';
+import ApolloContextWrapper from './components/wrappers/ApolloContextWrapper';
 
 export default function App() {
   const [fontsLoaded] = useFonts({
@@ -26,12 +23,14 @@ export default function App() {
   if (!fontsLoaded) return null;
 
   return (
-    <ApolloProvider client={apolloClient}>
-      <SafeAreaProvider>
-        <Container>
-          <RootNavigator />
-        </Container>
-      </SafeAreaProvider>
-    </ApolloProvider>
+    <ApolloContextWrapper>
+      <UserContextWrapper>
+        <SafeAreaProvider>
+          <Container>
+            <RootNavigator />
+          </Container>
+        </SafeAreaProvider>
+      </UserContextWrapper>
+    </ApolloContextWrapper>
   );
 }

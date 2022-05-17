@@ -7,13 +7,19 @@ import {
 } from './styles';
 import { InputProps } from './types';
 
-const Input = ({ label, description, ...rest }: InputProps) => (
+const Input = ({ label, description, isAlternative, ...rest }: InputProps) => (
   <StyledInputWrapper>
     <StyledInputLabelWrapper>
-      <StyledInputLabel fontWeight='semibold'>{label}</StyledInputLabel>
+      <StyledInputLabel
+        {...{ isAlternative }}
+        fontSize={isAlternative ? 14 : 16}
+        fontWeight='semibold'
+      >
+        {label}
+      </StyledInputLabel>
       {description && <StyledInputLabel> {description}</StyledInputLabel>}
     </StyledInputLabelWrapper>
-    <StyledTextInput {...rest} />
+    <StyledTextInput {...{ isAlternative }} {...rest} />
   </StyledInputWrapper>
 );
 
