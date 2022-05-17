@@ -1,4 +1,3 @@
-import { Text } from 'react-native';
 import React from 'react';
 import GradientWrapper from '../../components/wrappers/GradientWrapper';
 import SafeAreaWrapper from '../../components/wrappers/SafeAreaWrapper';

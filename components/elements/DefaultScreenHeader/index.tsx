@@ -1,5 +1,4 @@
 import React from 'react';
-import { useNavigation } from '@react-navigation/native';
 import { View } from 'react-native';
 import {
   StyledBackIcon,
@@ -9,9 +8,10 @@ import {
 import Box from '../../styles/Box';
 import { StyledText } from '../../styles/Typography/styles';
 import shadow from '../../../utils/shadow';
+import useStackNavigator from '../../../hooks/useStackNavigator';
 
 const DefaultScreenHeader = () => {
-  const navigation = useNavigation();
+  const navigation = useStackNavigator();
 
   return (
     <StyledDefaultScreenHeaderWrapper>
