@@ -14,14 +14,20 @@ import {
   StyledSignInDescription,
 } from './styles';
 import BetaVersionInfo from './components/BetaVersionInfo';
+import { ScreenProps } from '../../setup/navigation/types';
 
-const SignInOptionsScreen = () => {
+const SignInOptionsScreen = ({
+  navigation,
+}: ScreenProps<'Sign In Options'>) => {
   const availableSignInOptions: SignInMethods[] = [
     'apple',
     'facebook',
     'google',
     'email',
   ];
+
+  const onSignInPress = (type: SignInMethods) =>
+    type === 'email' ? navigation.navigate('Sign Up With Email') : noop;
 
   return (
     <GradientWrapper>
@@ -37,7 +43,11 @@ const SignInOptionsScreen = () => {
             </StyledSignInDescription>
             <Box pt={30}>
               {availableSignInOptions.map((type) => (
-                <SocialButton key={type} {...{ type }} />
+                <SocialButton
+                  key={type}
+                  {...{ type }}
+                  onPress={() => onSignInPress(type)}
+                />
               ))}
               <Box centerHorizontal pt={5}>
                 <Pressable>

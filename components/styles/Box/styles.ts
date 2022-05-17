@@ -2,7 +2,12 @@ import styled, { css } from 'styled-components/native';
 import { StyledBoxProps } from './types';
 
 export const StyledBox = styled.View<StyledBoxProps>`
-  flex: 1;
+  ${({ withFlex }) =>
+    withFlex
+      ? css`
+          flex: 1;
+        `
+      : undefined}
   ${({ centerVertical }) =>
     centerVertical
       ? css`

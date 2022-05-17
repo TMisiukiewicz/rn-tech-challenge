@@ -1,6 +1,8 @@
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
+import React from 'react';
 import SignInOptionsScreen from '../../screens/SignInOptionsScreen';
+import SignUpWithEmailScreen from '../../screens/SignUpWithEmailScreen';
 import { RootNavigationScreens } from './types';
 
 const Stack = createNativeStackNavigator<RootNavigationScreens>();
@@ -13,6 +15,10 @@ const RootNavigator = () => (
       }}
     >
       <Stack.Screen name='Sign In Options' component={SignInOptionsScreen} />
+      <Stack.Screen
+        name='Sign Up With Email'
+        component={SignUpWithEmailScreen}
+      />
     </Stack.Navigator>
   </NavigationContainer>
 );

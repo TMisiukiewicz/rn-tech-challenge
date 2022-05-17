@@ -11,4 +11,5 @@ export interface StyledBoxProps {
   mr?: number;
   widthRatio?: number; // 0 - 1
   width?: number;
+  withFlex?: boolean;
 }

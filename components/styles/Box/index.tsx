@@ -4,7 +4,8 @@ import { StyledBoxProps } from './types';
 
 const Box: React.FC<PropsWithChildren<StyledBoxProps>> = ({
   children,
+  withFlex = true,
   ...rest
-}) => <StyledBox {...rest}>{children}</StyledBox>;
+}) => <StyledBox {...{ withFlex, ...rest }}>{children}</StyledBox>;
 
 export default Box;

@@ -1,4 +1,5 @@
 import React from 'react';
+import shadow from '../../../../utils/shadow';
 import { useSocialButton } from './hooks';
 import {
   StyledSocialButtonTitle,
@@ -7,22 +8,10 @@ import {
 } from './styles';
 import { SocialButtonProps } from './types';
 
-const SocialButton = ({ type }: SocialButtonProps) => {
+const SocialButton = ({ type, onPress }: SocialButtonProps) => {
   const { title, icon } = useSocialButton(type);
   return (
-    <StyledSocialButtonWrapper
-      style={{
-        shadowColor: '#000',
-        shadowOffset: {
-          width: 0,
-          height: 1,
-        },
-        shadowOpacity: 0.25,
-        shadowRadius: 2.22,
-
-        elevation: 3,
-      }}
-    >
+    <StyledSocialButtonWrapper {...{ onPress }} style={shadow}>
       {icon && <StyledSocialButtonIcon source={icon} />}
       <StyledSocialButtonTitle fontWeight='semibold' fontSize={16}>
         {title}
